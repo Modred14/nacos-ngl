@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getQuestionById } from '@/lib/db';
-import PublicLayout from '@/components/layout/PublicLayout';
-import ResponseForm from '@/components/public/ResponseForm';
+import PublicLayout from '@/components/PublicLayout';
+
 import { ArrowLeft, MessageSquare, Shield } from 'lucide-react';
 import Link from 'next/link';
 
@@ -70,7 +70,7 @@ export default function QuestionPage({ params }) {
         </div>
 
         {/* Response form */}
-        <ResponseForm questionId={question.id} />
+     
       </div>
     </PublicLayout>
   );
