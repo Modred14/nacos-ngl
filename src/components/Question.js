@@ -1,37 +1,64 @@
-import Link from 'next/link';
-import { ArrowRight, MessageCircle, Users } from 'lucide-react';
+import Link from "next/link";
+import {
+  ArrowRight,
+  MessageCircle,
+  Users,
+  BadgeQuestionMark,
+} from "lucide-react";
 
 const ACCENT_COLORS = [
-  { dot: 'bg-brand-400',  ring: 'ring-brand-100',  hover: 'hover:border-brand-300  hover:shadow-brand-100/60' },
-  { dot: 'bg-gold-400',   ring: 'ring-gold-100',   hover: 'hover:border-gold-300   hover:shadow-gold-100/60'  },
-  { dot: 'bg-sky-400',    ring: 'ring-sky-100',    hover: 'hover:border-sky-300    hover:shadow-sky-100/60'   },
-  { dot: 'bg-violet-400', ring: 'ring-violet-100', hover: 'hover:border-violet-300 hover:shadow-violet-100/60'},
-  { dot: 'bg-rose-400',   ring: 'ring-rose-100',   hover: 'hover:border-rose-300   hover:shadow-rose-100/60'  },
+  {
+    dot: "bg-brand-400",
+    ring: "ring-brand-100",
+    hover: "hover:border-brand-300  hover:shadow-brand-100/60",
+  },
+  {
+    dot: "bg-gold-400",
+    ring: "ring-gold-100",
+    hover: "hover:border-gold-300   hover:shadow-gold-100/60",
+  },
+  {
+    dot: "bg-sky-400",
+    ring: "ring-sky-100",
+    hover: "hover:border-sky-300    hover:shadow-sky-100/60",
+  },
+  {
+    dot: "bg-violet-400",
+    ring: "ring-violet-100",
+    hover: "hover:border-violet-300 hover:shadow-violet-100/60",
+  },
+  {
+    dot: "bg-rose-400",
+    ring: "ring-rose-100",
+    hover: "hover:border-rose-300   hover:shadow-rose-100/60",
+  },
 ];
 
 export default function QuestionCard({ question, index = 0 }) {
   const accent = ACCENT_COLORS[index % ACCENT_COLORS.length];
-  const count  = Number(question.response_count ?? 0);
+  const count = Number(question.response_count ?? 0);
 
   return (
-    <Link href={`/questions/${question.id}`} className="block group">
-      <article className={`
+    <Link href={`/question/${question.id}`} className="block group">
+      <article
+        className={`
         relative bg-white border border-surface-200 rounded-2xl p-5 sm:p-6
         transition-all duration-300
         hover:shadow-lg hover:-translate-y-0.5
         ${accent.hover}
         focus-within:ring-2 focus-within:ring-brand-500
-      `}>
-
+      `}
+      >
         {/* Top row: accent dot + number pill */}
         <div className="flex items-center justify-between mb-4">
-          <div className={`w-2.5 h-2.5 rounded-full ${accent.dot} ring-4 ${accent.ring}`} />
+          <div>
+            <BadgeQuestionMark size={20} className="text-brand-400"/>
+          </div>
           <div className="flex items-center gap-1.5 text-xs font-medium text-surface-400 bg-surface-50 border border-surface-200 px-2.5 py-1 rounded-full">
             <Users className="w-3 h-3" />
             {count === 0
-              ? 'Be the first to respond'
-              : `${count} response${count !== 1 ? 's' : ''}`
-            }
+              ? "Be the first to respond"
+              : `${count} response${count !== 1 ? "s" : ""}`}
           </div>
         </div>
 
