@@ -150,7 +150,7 @@ export default function QuestionPageClient({ id }) {
   if (loading) {
     return (
       <>
-        <div className=" flex items-center justify-center">
+        <div className="h-screen flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
             <div className="w-15 h-15 border-4 border-gray-100 border-t-brand-600 rounded-full animate-spin"></div>
 
