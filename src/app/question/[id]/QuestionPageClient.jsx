@@ -149,10 +149,17 @@ export default function QuestionPageClient({ id }) {
   // ── Loading ────────────────────────────────────────────────────────────────
   if (loading) {
     return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-10">
-        <div className="h-5 w-28 bg-surface-200 rounded-lg animate-pulse mb-8" />
-        <Skeleton />
-      </div>
+      <>
+        <div className=" flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-15 h-15 border-4 border-gray-100 border-t-brand-600 rounded-full animate-spin"></div>
+
+            <p className="text-black font-semibold">
+              Loading<span className="loading-dots"></span>
+            </p>
+          </div>
+        </div>
+      </>
     );
   }
 
@@ -313,9 +320,6 @@ export default function QuestionPageClient({ id }) {
       </div>
 
       {/* ── RESPONSES ───────────────────────────────────────────────────── */}
-     
-
-   
     </div>
   );
 }
